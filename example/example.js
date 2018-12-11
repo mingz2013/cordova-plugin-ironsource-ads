@@ -17,7 +17,7 @@ document.addEventListener('deviceready', function onDeviceReady() {
 
             appKey: appKey,
 
-            userId: 'foo', // optional
+            userId: 'userId_Test', // optional
 
             onSuccess: function () {
 
