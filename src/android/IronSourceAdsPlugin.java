@@ -23,7 +23,7 @@ import org.json.JSONObject;
 import com.ironsource.adapters.supersonicads.SupersonicConfig;
 import com.ironsource.mediationsdk.IronSource;
 import com.ironsource.mediationsdk.IronSourceBannerLayout;
-import com.ironsource.mediationsdk.EBannerSize;
+import com.ironsource.mediationsdk.ISBannerSize;
 import com.ironsource.mediationsdk.integration.IntegrationHelper;
 import com.ironsource.mediationsdk.logger.IronSourceError;
 import com.ironsource.mediationsdk.model.Placement;
@@ -640,7 +640,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
                 destroyBanner();
 
                 // choose banner size
-                EBannerSize size = EBannerSize.BANNER;
+                ISBannerSize size = ISBannerSize.BANNER;
 
                 // instantiate IronSourceBanner object, using the IronSource.createBanner API
                 mIronSourceBannerLayout = IronSource.createBanner(self.cordova.getActivity(), size);
