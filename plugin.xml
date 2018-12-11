@@ -26,16 +26,18 @@
           <!-- ADD MEDIATION PERMISSIONS HERE -->
 
             <!--Requested by Applovin + HyperMX + Vungle -->
-            <!-- <uses-permission
-                android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-                android:maxSdkVersion="18" /> -->
+            <uses-permission
+                    android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+                    android:maxSdkVersion="18"/>
 
             <!--Requested by Flurry -->
-            <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
 
             <meta-data
                 android:name="com.google.android.gms.version"
                 android:value="@integer/google_play_services_version" />
+
 
 
         </config-file>
@@ -59,6 +61,110 @@
                 android:configChanges="orientation|screenSize"
                 android:hardwareAccelerated="true"
                 android:theme="@android:style/Theme.Translucent" />
+            <activity android:name="com.google.android.gms.ads.AdActivity"
+                      android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+                      android:theme="@android:style/Theme.Translucent"/>
+            <activity
+                    android:name="com.applovin.adview.AppLovinInterstitialActivity"/>
+            <activity
+                    android:name="com.applovin.adview.AppLovinConfirmationActivity"/>
+            <activity
+                    android:name="com.chartboost.sdk.CBImpressionActivity"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:hardwareAccelerated="true"/>
+            <activity
+                    android:name="com.facebook.ads.AudienceNetworkActivity"
+                    android:hardwareAccelerated="true"
+                    android:configChanges="keyboardHidden|orientation|screenSize"/>
+            <activity
+                    android:name="com.ironsource.adapters.hyprmx.MediationHMXActivity"
+                    android:configChanges="orientation|screenSize|keyboardHidden|keyboard|smallestScreenSize|uiMode|fontScale|screenLayout|locale">
+            </activity>
+            <activity
+                    android:name="com.inmobi.rendering.InMobiAdActivity"
+                    android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
+                    android:hardwareAccelerated="true"
+                    android:resizeableActivity="false"
+                    android:theme="@android:style/Theme.NoTitleBar"
+                    tools:ignore="UnusedAttribute"/>
+            <activity
+                    android:name="jp.maio.sdk.android.AdFullscreenActivity"
+                    android:configChanges="orientation|screenLayout|screenSize"
+                    android:hardwareAccelerated="true"
+                    android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            </activity>
+            <activity
+                    android:name="jp.maio.sdk.android.HtmlBasedAdActivity"
+                    android:configChanges="keyboardHidden|orientation|screenSize"
+                    android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            </activity>
+
+            <activity
+                    android:name="com.mediabrix.android.service.AdViewActivity"
+                    android:configChanges="orientation|screenSize|keyboard"
+                    android:hardwareAccelerated="true"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            </activity>
+            <activity
+                    android:name="com.mediabrix.android.service.ClickOutActivity"
+                    android:configChanges="orientation|screenSize|keyboard"
+                    android:hardwareAccelerated="true"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            </activity>
+            <service
+                    android:name="com.mediabrix.android.service.MediaBrixService">
+            </service>
+
+            <activity android:name="com.mopub.mobileads.MoPubActivity"
+                      android:configChanges="keyboardHidden|orientation|screenSize"/>
+            <activity android:name="com.mopub.mobileads.MraidActivity"
+                      android:configChanges="keyboardHidden|orientation|screenSize"/>
+            <activity android:name="com.mopub.common.MoPubBrowser"
+                      android:configChanges="keyboardHidden|orientation|screenSize"/>
+            <activity android:name="com.mopub.mobileads.MraidVideoPlayerActivity"
+                      android:configChanges="keyboardHidden|orientation|screenSize"/>
+            <activity android:name="com.mopub.mobileads.RewardedMraidActivity"
+                      android:configChanges="keyboardHidden|orientation|screenSize"/>
+            <activity android:name="com.mopub.common.privacy.ConsentDialogActivity"
+                      android:configChanges="keyboardHidden|orientation|screenSize"/>
+            <activity
+                    android:name="com.unity3d.services.ads.adunit.AdUnitActivity"
+                    android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+                    android:hardwareAccelerated="true"
+                    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+            <activity
+                    android:name="com.unity3d.services.ads.adunit.AdUnitTransparentActivity"
+                    android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+                    android:hardwareAccelerated="true"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+            <activity
+                    android:name="com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity"
+                    android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+                    android:hardwareAccelerated="false"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+            <activity
+                    android:name="com.unity3d.services.ads.adunit.AdUnitSoftwareActivity"
+                    android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+                    android:hardwareAccelerated="false"
+                    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+            <activity
+                    android:name="com.tapjoy.TJAdUnitActivity"
+                    android:configChanges="orientation|keyboardHidden|screenSize"
+                    android:hardwareAccelerated="true"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"/>
+            <activity
+                    android:name="com.tapjoy.mraid.view.ActionHandler"
+                    android:configChanges="orientation|keyboardHidden|screenSize"/>
+            <activity
+                    android:name="com.tapjoy.mraid.view.Browser"
+                    android:configChanges="orientation|keyboardHidden|screenSize"/>
+            <activity
+                    android:name="com.tapjoy.TJContentActivity"
+                    android:configChanges="orientation|keyboardHidden|screenSize"
+                    android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                    android:hardwareAccelerated="true"/>
 
 
         </config-file>
@@ -77,16 +183,34 @@
         </config-file>
         <header-file src="src/ios/IronSourceAdsPlugin.h" />
         <source-file src="src/ios/IronSourceAdsPlugin.m" />
-        <framework src="IronSourceSDK" type="podspec" spec="~> 6.7.12.0" />
-        <framework src="IronSourceFacebookAdapter" type="podspec" spec="~> 4.3.0.0" />
-        <framework src="IronSourceAdMobAdapter" type="podspec" spec="~> 4.3.0.0" />
-        <framework src="IronSourceUnityAdsAdapter" type="podspec" spec="~> 4.1.1.6" />
+        <framework src="IronSourceSDK" type="podspec" spec="~> 6.8.0.0"/>
+        <framework src="IronSourceFacebookAdapter" type="podspec" spec="~> 4.3.1.1"/>
+        <framework src="IronSourceAdMobAdapter" type="podspec" spec="~> 4.3.0.1"/>
+        <framework src="IronSourceUnityAdsAdapter" type="podspec" spec="~> 4.1.2.1"/>
 
         <!-- ADD MEDIATION FRAMEWORKS HERE -->
-        <!-- Example -->
-        <!-- <framework src="ISAdColonyAdapter.framework" custom="true" /> -->
-        <!-- <framework src="ISAdMobAdapter.framework" custom="true" /> -->
-        <!-- Example -->
+        <framework src="IronSourceAdColonyAdapter" type="podspec" spec="~> 4.1.3.3"/>
+
+        <framework src="IronSourceAppLovinAdapter" type="podspec" spec="~> 4.3.1.0"/>
+
+
+        <framework src="IronSourceChartboostAdapter" type="podspec" spec="~> 4.1.5.0"/>
+
+
+        <framework src="IronSourceHyprMXAdapter" type="podspec" spec="~> 4.1.0.10"/>
+
+        <framework src="IronSourceInMobiAdapter" type="podspec" spec="~> 4.3.0.1"/>
+
+        <framework src="IronSourceMaioAdapter" type="podspec" spec="~> 4.1.2.0"/>
+
+        <framework src="IronSourceMediaBrixAdapter" type="podspec" spec="~> 4.1.1.9"/>
+
+        <framework src="IronSourceMoPubAdapter" type="podspec" spec="~> 4.1.2.3"/>
+
+        <framework src="IronSourceTapjoyAdapter" type="podspec" spec="~> 4.1.2.2"/>
+
+        <framework src="IronSourceVungleAdapter" type="podspec" spec="~> 4.1.5.7"/>
+
 
         <framework src="CoreFoundation.framework" weak="true"/>
         <framework src="Foundation.framework" />
@@ -104,5 +228,13 @@
         <framework src="CoreLocation.framework" />
         <framework src="CoreTelephony.framework" />
         <framework src="Security.framework" />
+
+        <framework src="UIKit.framework"/>
+        <framework src="libxml2.2.tbd"/>
+        <framework src="EventKitUI.framework"/>
+        <framework src="libsqlite3.tbd"/>
+        <framework src="libc++"/>
+
+
     </platform>
 </plugin>

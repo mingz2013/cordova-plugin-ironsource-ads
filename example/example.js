@@ -1,6 +1,5 @@
 document.addEventListener('deviceready', function onDeviceReady() {
-
-
+    console.log("deviceready.....");
 
         //App keys
         var IOS_KEY = "685af35d";
@@ -8,6 +7,8 @@ document.addEventListener('deviceready', function onDeviceReady() {
 
         //Get app key based on platform
         const appKey = cordova.platformId === 'ios' ? IOS_KEY : ANDROID_KEY;
+
+    console.log("appKey..." + appKey);
 
         /**
          * Initialize Iron Source Ads
@@ -21,6 +22,8 @@ document.addEventListener('deviceready', function onDeviceReady() {
 
             onSuccess: function () {
 
+                console.log("init.....onSuccess....");
+
                 /**
                  * Validate Integration
                  */
@@ -31,57 +34,6 @@ document.addEventListener('deviceready', function onDeviceReady() {
                  * Set user Id (optional)
                  */
                 IronSourceAds.setDynamicUserId({ userId: '' });
-
-
-
-
-
-                /***************** INTERSTITIALS ******************* */
-
-                //Intersitials require you to load them before you can use them
-
-                /**
-                 * Load Interstitial
-                 */
-                IronSourceAds.loadInterstitial();
-
-                /**
-                 * Check if interstitial is ready
-                 */
-                IronSourceAds.hasInterstitial({
-                    onSuccess: function (available) {
-                        if (available) {
-                            //Show Interstitial
-                            IronSourceAds.showInterstitial();
-                        }
-                    }
-                })
-
-
-
-                /******************** OFFERWALL ******************* */
-
-                IronSourceAds.hasOfferwall({
-                    onSuccess: function (available) {
-                        if (available) {
-                            //Show offerwall
-                            IronSourceAds.showOfferwall();
-                        }
-                    }
-                })
-
-
-
-                /******************** REWARDED VIDEO ******************* */
-
-                IronSourceAds.hasRewardedVideo({
-                    onSuccess: function (available) {
-                        if (available) {
-                            //Show offerwall
-                            IronSourceAds.showRewardedVideo();
-                        }
-                    }
-                })
 
 
 
@@ -125,6 +77,56 @@ document.addEventListener('deviceready', function onDeviceReady() {
                 window.addEventListener("bannerDidDismissScreen", function () { console.log("bannerDidDismissScreen") });
                 window.addEventListener("bannerWillLeaveApplication", function () { console.log("bannerWillLeaveApplication") });
 
+
+                /***************** INTERSTITIALS ******************* */
+
+                //Intersitials require you to load them before you can use them
+
+                /**
+                 * Load Interstitial
+                 */
+                IronSourceAds.loadInterstitial();
+
+                /**
+                 * Check if interstitial is ready
+                 */
+                IronSourceAds.hasInterstitial({
+                    onSuccess: function (available) {
+                        if (available) {
+                            //Show Interstitial
+                            IronSourceAds.showInterstitial();
+                        }
+                    }
+                });
+
+
+                /******************** OFFERWALL ******************* */
+
+                IronSourceAds.hasOfferwall({
+                    onSuccess: function (available) {
+                        if (available) {
+                            //Show offerwall
+                            IronSourceAds.showOfferwall();
+                        }
+                    }
+                });
+
+
+                /******************** REWARDED VIDEO ******************* */
+
+                IronSourceAds.hasRewardedVideo({
+                    onSuccess: function (available) {
+                        if (available) {
+                            //Show offerwall
+                            IronSourceAds.showRewardedVideo();
+                        }
+                    }
+                });
+
+
+            },
+            onFailure: function (data) {
+                console.log("onFailure...." + data);
             }
         });
 
