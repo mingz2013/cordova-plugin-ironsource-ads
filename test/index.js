@@ -1,4 +1,12 @@
 window.onload = function () {
+
+    function showlog(message) {
+        document.getElementById("log").innerHTML = message;
+        // document.write(message);
+        console.log(message);
+    }
+
+
     document.addEventListener('deviceready', function onDeviceReady() {
         console.log("deviceready.....");
 
@@ -33,88 +41,88 @@ window.onload = function () {
 
                 //Rewarded Video
                 window.addEventListener("rewardedVideoFailed", function () {
-                    console.log("rewardedVideoFailed");
+                    showlog("rewardedVideoFailed");
                 });
                 window.addEventListener("rewardedVideoRewardReceived", function (event) {
-                    console.log("rewardedVideoRewardReceived", event);
+                    showlog("rewardedVideoRewardReceived", event);
                 });
                 window.addEventListener("rewardedVideoEnded", function () {
-                    console.log("rewardedVideoEnded")
+                    showlog("rewardedVideoEnded")
                 });
                 window.addEventListener("rewardedVideoStarted", function () {
-                    console.log("rewardedVideoStarted")
+                    showlog("rewardedVideoStarted")
                 });
                 window.addEventListener("rewardedVideoAvailabilityChanged", function (event) {
-                    console.log("rewardedVideoAvailabilityChanged", event.available)
+                    showlog("rewardedVideoAvailabilityChanged", event.available)
                 });
                 window.addEventListener("rewardedVideoClosed", function () {
-                    console.log("rewardedVideoClosed")
+                    showlog("rewardedVideoClosed")
                 });
                 window.addEventListener("rewardedVideoOpened", function () {
-                    console.log("rewardedVideoOpened")
+                    showlog("rewardedVideoOpened")
                 });
 
                 //Interstitial
                 window.addEventListener("interstitialLoaded", function () {
-                    console.log("interstitialLoaded")
+                    showlog("interstitialLoaded")
                 });
                 window.addEventListener("interstitialShown", function () {
-                    console.log("interstitialShown")
+                    showlog("interstitialShown")
                 });
                 window.addEventListener("interstitialShowFailed", function () {
-                    console.log("interstitialShowFailed")
+                    showlog("interstitialShowFailed")
                 });
                 window.addEventListener("interstitialClicked", function () {
-                    console.log("interstitialClicked")
+                    showlog("interstitialClicked")
                 });
                 window.addEventListener("interstitialClosed", function () {
-                    console.log("interstitialClosed")
+                    showlog("interstitialClosed")
                 });
                 window.addEventListener("interstitialWillOpen", function () {
-                    console.log("interstitialWillOpen")
+                    showlog("interstitialWillOpen")
                 });
                 window.addEventListener("interstitialFailedToLoad", function () {
-                    console.log("interstitialFailedToLoad")
+                    showlog("interstitialFailedToLoad")
                 });
 
                 //Offerwall
                 window.addEventListener("offerwallClosed", function () {
-                    console.log("offerwallClosed")
+                    showlog("offerwallClosed")
                 })
                 window.addEventListener("offerwallCreditFailed", function () {
-                    console.log("offerwallCreditFailed")
+                    showlog("offerwallCreditFailed")
                 })
                 window.addEventListener("offerwallCreditReceived", function (event) {
-                    console.log("offerwallCreditReceived", event)
+                    showlog("offerwallCreditReceived", event)
                 })
                 window.addEventListener("offerwallShowFailed", function () {
-                    console.log("offerwallShowFailed")
+                    showlog("offerwallShowFailed")
                 })
                 window.addEventListener("offerwallShown", function () {
-                    console.log("offerwallShown")
+                    showlog("offerwallShown")
                 })
                 window.addEventListener("offerwallAvailabilityChanged", function (event) {
-                    console.log("offerwallAvailabilityChanged", event.available)
+                    showlog("offerwallAvailabilityChanged", event.available)
                 })
 
                 //Banner
                 window.addEventListener("bannerDidLoad", function () {
-                    console.log("bannerDidLoad")
+                    showlog("bannerDidLoad")
                 });
                 window.addEventListener("bannerFailedToLoad", function () {
-                    console.log("bannerFailedToLoad")
+                    showlog("bannerFailedToLoad")
                 });
                 window.addEventListener("bannerDidClick", function () {
-                    console.log("bannerDidClick")
+                    showlog("bannerDidClick")
                 });
                 window.addEventListener("bannerWillPresentScreen", function () {
-                    console.log("bannerWillPresentScreen")
+                    showlog("bannerWillPresentScreen")
                 });
                 window.addEventListener("bannerDidDismissScreen", function () {
-                    console.log("bannerDidDismissScreen")
+                    showlog("bannerDidDismissScreen")
                 });
                 window.addEventListener("bannerWillLeaveApplication", function () {
-                    console.log("bannerWillLeaveApplication")
+                    showlog("bannerWillLeaveApplication")
                 });
 
 
