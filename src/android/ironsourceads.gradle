@@ -34,7 +34,12 @@ jcenter() // includes the MoPub SDK and AVID library
 
 dependencies {
 implementation 'com.ironsource.sdk:mediationsdk:6.8.0.1@jar'
- implementation "com.android.support:support-v4:+"
+
+   implementation 'com.android.support:support-v4:27.1.0'
+       implementation 'com.android.support:appcompat-v7:27.1.0'
+       implementation 'com.android.support:recyclerview-v7:27.1.0'
+
+
 implementation 'com.google.android.gms:play-services-ads:17.1.2'
 
 // Add AdColony Network
@@ -51,6 +56,8 @@ implementation 'com.ironsource.adapters:facebookadapter:4.3.1@jar'
 implementation 'com.android.support:recyclerview-v7:25.3.1'
 // Add Fyber Network (Adapter only)
 implementation 'com.ironsource.adapters:fyberadapter:4.3.0@jar'
+implementation 'com.google.code.gson:gson:2.7'
+
 // Add HyprMX Network
 implementation 'com.ironsource.adapters:hyprmxadapter:4.1.1@jar'
 implementation 'com.hyprmx.android:HyprMX-SDK:4.3'
@@ -58,6 +65,8 @@ implementation 'com.android.support:support-annotations:25.1.0'
 
 // Add InMobi Network
 implementation 'com.ironsource.adapters:inmobiadapter:4.3.0@jar'
+implementation 'com.squareup.picasso:picasso:2.5.2'
+
 // Add Maio Network
 implementation 'com.ironsource.adapters:maioadapter:4.1.2@jar'
 // Add MediaBrix Network
