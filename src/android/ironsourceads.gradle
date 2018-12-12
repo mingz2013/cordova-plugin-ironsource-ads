@@ -84,4 +84,13 @@ cdvPluginPostBuildExtras.add({
 
     }
 
+
+
+    android {
+        defaultConfig {
+            // https://developer.android.com/studio/build/multidex
+            multiDexEnabled true
+        }
+    }
+
 });
