@@ -1,6 +1,8 @@
 cdvPluginPostBuildExtras.add({
 
     repositories {
+        jcenter() // includes the MoPub SDK and AVID library
+
         maven {
             url 'https://dl.bintray.com/ironsource-mobile/android-sdk'
         }
@@ -10,14 +12,14 @@ cdvPluginPostBuildExtras.add({
         maven {
             url  "https://adcolony.bintray.com/AdColony"
         }
+
         maven {
             url "https://s3.amazonaws.com/moat-sdk-builds"
         }
+
         maven {
             url "https://raw.githubusercontent.com/HyprMXMobile/Android-SDKs/master"
         }
-        jcenter() // includes the MoPub SDK and AVID library
-
     }
 
 
