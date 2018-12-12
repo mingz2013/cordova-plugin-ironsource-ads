@@ -203,6 +203,8 @@
         </config-file>
         <header-file src="src/ios/IronSourceAdsPlugin.h"/>
         <source-file src="src/ios/IronSourceAdsPlugin.m"/>
+
+
         <framework src="IronSourceSDK" type="podspec" spec="~> 6.8.0.0"/>
         <framework src="IronSourceFacebookAdapter" type="podspec" spec="~> 4.3.1.1"/>
         <framework src="IronSourceAdMobAdapter" type="podspec" spec="~> 4.3.0.1"/>
@@ -232,6 +234,8 @@
         <framework src="IronSourceVungleAdapter" type="podspec" spec="~> 4.1.5.7"/>
 
 
+        <framework src="src/ios/ISFyberAdapter.framework" custom="true"/>
+
         <framework src="CoreFoundation.framework" weak="true"/>
         <framework src="Foundation.framework"/>
         <framework src="AVFoundation.framework"/>
@@ -248,14 +252,16 @@
         <framework src="CoreLocation.framework"/>
         <framework src="CoreTelephony.framework"/>
         <framework src="Security.framework"/>
+        <framework src="CoreData.framework"/>
 
-        <framework src="UIKit.framework" typr="podspec"/>
-        <framework src="libxml2.2.tbd" typr="podspec"/>
-        <framework src="EventKitUI.framework" typr="podspec"/>
-        <framework src="libsqlite3.tbd" typr="podspec"/>
-        <framework src="libc++" typr="podspec"/>
-        <framework src="picasso:2.5.2" typr="podspec"/>
-        <framework src="gson-2.7.jar" typr="podspec"/>
+        <framework src="CoreGraphics.framework"/>
+        <framework src="UIKit.framework"/>
+        <framework src="libxml2.2.tbd"/>
+        <framework src="EventKitUI.framework"/>
+        <framework src="libsqlite3.tbd"/>
+        <framework src="libc++"/>
+        <framework src="picasso:2.5.2" type="podspec"/>
+        <framework src="gson-2.7.jar" type="podspec"/>
 
 
     </platform>
