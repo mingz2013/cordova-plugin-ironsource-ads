@@ -1,5 +1,6 @@
-document.addEventListener('deviceready', function onDeviceReady() {
-    console.log("deviceready.....");
+window.onload = function () {
+    document.addEventListener('deviceready', function onDeviceReady() {
+        console.log("deviceready.....");
 
         //App keys
         var IOS_KEY = "685af35d";
@@ -8,7 +9,7 @@ document.addEventListener('deviceready', function onDeviceReady() {
         //Get app key based on platform
         const appKey = cordova.platformId === 'ios' ? IOS_KEY : ANDROID_KEY;
 
-    console.log("appKey..." + appKey);
+        console.log("appKey..." + appKey);
 
         /**
          * Initialize Iron Source Ads
@@ -117,9 +118,6 @@ document.addEventListener('deviceready', function onDeviceReady() {
                 });
 
 
-
-
-
                 /**
                  * Validate Integration
                  */
@@ -129,8 +127,7 @@ document.addEventListener('deviceready', function onDeviceReady() {
                 /**
                  * Set user Id (optional)
                  */
-                IronSourceAds.setDynamicUserId({ userId: '' });
-
+                IronSourceAds.setDynamicUserId({userId: ''});
 
 
                 /***************** INTERSTITIALS ******************* */
@@ -140,43 +137,43 @@ document.addEventListener('deviceready', function onDeviceReady() {
                 /**
                  * Load Interstitial
                  */
-                IronSourceAds.loadInterstitial();
-
-                /**
-                 * Check if interstitial is ready
-                 */
-                IronSourceAds.hasInterstitial({
-                    onSuccess: function (available) {
-                        if (available) {
-                            //Show Interstitial
-                            IronSourceAds.showInterstitial();
-                        }
-                    }
-                });
+                // IronSourceAds.loadInterstitial();
+                //
+                // /**
+                //  * Check if interstitial is ready
+                //  */
+                // IronSourceAds.hasInterstitial({
+                //     onSuccess: function (available) {
+                //         if (available) {
+                //             //Show Interstitial
+                //             IronSourceAds.showInterstitial();
+                //         }
+                //     }
+                // });
 
 
                 /******************** OFFERWALL ******************* */
 
-                IronSourceAds.hasOfferwall({
-                    onSuccess: function (available) {
-                        if (available) {
-                            //Show offerwall
-                            IronSourceAds.showOfferwall();
-                        }
-                    }
-                });
+                // IronSourceAds.hasOfferwall({
+                //     onSuccess: function (available) {
+                //         if (available) {
+                //             //Show offerwall
+                //             IronSourceAds.showOfferwall();
+                //         }
+                //     }
+                // });
 
 
                 /******************** REWARDED VIDEO ******************* */
 
-                IronSourceAds.hasRewardedVideo({
-                    onSuccess: function (available) {
-                        if (available) {
-                            //Show offerwall
-                            IronSourceAds.showRewardedVideo();
-                        }
-                    }
-                });
+                // IronSourceAds.hasRewardedVideo({
+                //     onSuccess: function (available) {
+                //         if (available) {
+                //             //Show offerwall
+                //             IronSourceAds.showRewardedVideo();
+                //         }
+                //     }
+                // });
 
 
             },
@@ -186,3 +183,60 @@ document.addEventListener('deviceready', function onDeviceReady() {
         });
 
     });
+
+
+    document.getElementById("loadInterstitialAds").onclick = function () {
+        IronSourceAds.loadInterstitial();
+    };
+
+    document.getElementById("showInterstitialAds").onclick = function () {
+        IronSourceAds.hasInterstitial({
+            onSuccess: function (available) {
+                if (available) {
+                    //Show Interstitial
+                    IronSourceAds.showInterstitial();
+                }
+            }
+        });
+    };
+
+    document.getElementById("showRewardVideoAds").onclick = function () {
+        IronSourceAds.hasRewardedVideo({
+            onSuccess: function (available) {
+                if (available) {
+                    //Show offerwall
+                    IronSourceAds.showRewardedVideo();
+                }
+            }
+        });
+    };
+
+
+    document.getElementById("showOfferwall").onclick = function () {
+        IronSourceAds.hasOfferwall({
+            onSuccess: function (available) {
+                if (available) {
+                    //Show offerwall
+                    IronSourceAds.showOfferwall();
+                }
+            }
+        });
+    };
+
+
+    document.getElementById("loadBannerAds").onclick = function () {
+        IronSourceAds.loadBanner();
+    };
+
+
+    document.getElementById("showBannerAds").onclick = function () {
+        IronSourceAds.showBanner();
+    };
+
+    document.getElementById("hidebannerAds").onclick = function () {
+        IronSourceAds.hideBanner();
+    };
+
+
+};
+
