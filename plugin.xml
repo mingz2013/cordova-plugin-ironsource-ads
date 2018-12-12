@@ -188,6 +188,8 @@
             <feature name="IronSourceAdsPlugin">
                 <param name="ios-package" value="IronSourceAdsPlugin" />
             </feature>
+            <preference name="deployment-target" value="9.0"/>
+
         </config-file>
         <header-file src="src/ios/IronSourceAdsPlugin.h" />
         <source-file src="src/ios/IronSourceAdsPlugin.m" />
