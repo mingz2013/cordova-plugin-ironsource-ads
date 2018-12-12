@@ -48,6 +48,12 @@
 
 
 
+# TODO
+- use Proguard
+- other...
+
+
+
 
 
 
