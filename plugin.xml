@@ -1,29 +1,31 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="cordova-plugin-ironsource-ads" version="0.1.7" xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
     <name>cordova-plugin-ironsource-ads</name>
     <description>Cordova plugin for IronSource Ads</description>
     <js-module src="www/ironsourceads.js" name="IronSourceAds">
-        <clobbers target="IronSourceAds" />
+        <clobbers target="IronSourceAds"/>
     </js-module>
 
     <engines>
-        <engine name="cordova" version=">=6.3.0" />
-        <engine name="cordova-android" version=">=4.0.0" />
-        <engine name="cordova-ios" version=">=4.3.0" />
+        <engine name="cordova" version=">=6.3.0"/>
+        <engine name="cordova-android" version=">=4.0.0"/>
+        <engine name="cordova-ios" version=">=4.3.0"/>
     </engines>
 
     <platform name="android">
 
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="IronSourceAdsPlugin">
-                <param name="android-package" value="com.charlesbodman.cordova.plugin.ironsource.IronSourceAdsPlugin" />
+                <param name="android-package" value="com.charlesbodman.cordova.plugin.ironsource.IronSourceAdsPlugin"/>
             </feature>
         </config-file>
+
+
         <config-file target="AndroidManifest.xml" parent="/manifest">
-          <uses-permission android:name="android.permission.INTERNET" />
-          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-          <!-- ADD MEDIATION PERMISSIONS HERE -->
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <!-- ADD MEDIATION PERMISSIONS HERE -->
 
             <!--Requested by Applovin + HyperMX + Vungle -->
             <uses-permission
@@ -34,38 +36,38 @@
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
 
-            <meta-data
-                android:name="com.google.android.gms.version"
-                android:value="@integer/google_play_services_version" />
-
-            <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-            <meta-data
-                    android:name="com.google.android.gms.ads.APPLICATION_ID"
-                    android:value="ca-app-pub-3940256099942544~3347511713"/>
-
+            <!--<meta-data-->
+            <!--android:name="com.google.android.gms.version"-->
+            <!--android:value="@integer/google_play_services_version"/>-->
 
 
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
 
+
+            <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            <meta-data
+                    android:name="com.google.android.gms.ads.APPLICATION_ID"
+                    android:value="ca-app-pub-3940256099942544~3347511713"/>
+
             <meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+                       android:value="@integer/google_play_services_version"/>
 
             <activity
-                android:name="com.ironsource.sdk.controller.ControllerActivity"
-                android:configChanges="orientation|screenSize"
-                android:hardwareAccelerated="true" />
+                    android:name="com.ironsource.sdk.controller.ControllerActivity"
+                    android:configChanges="orientation|screenSize"
+                    android:hardwareAccelerated="true"/>
             <activity
-                android:name="com.ironsource.sdk.controller.InterstitialActivity"
-                android:configChanges="orientation|screenSize"
-                android:hardwareAccelerated="true"
-                android:theme="@android:style/Theme.Translucent" />
+                    android:name="com.ironsource.sdk.controller.InterstitialActivity"
+                    android:configChanges="orientation|screenSize"
+                    android:hardwareAccelerated="true"
+                    android:theme="@android:style/Theme.Translucent"/>
             <activity
-                android:name="com.ironsource.sdk.controller.OpenUrlActivity"
-                android:configChanges="orientation|screenSize"
-                android:hardwareAccelerated="true"
-                android:theme="@android:style/Theme.Translucent" />
+                    android:name="com.ironsource.sdk.controller.OpenUrlActivity"
+                    android:configChanges="orientation|screenSize"
+                    android:hardwareAccelerated="true"
+                    android:theme="@android:style/Theme.Translucent"/>
             <activity android:name="com.google.android.gms.ads.AdActivity"
                       android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
                       android:theme="@android:style/Theme.Translucent"/>
@@ -179,11 +181,12 @@
 
         </config-file>
 
+
         <source-file src="src/android/IronSourceAdsPlugin.java"
-            target-dir="src/com/charlesbodman/cordova/plugin/ironsource" />
+                     target-dir="src/com/charlesbodman/cordova/plugin/ironsource"/>
 
 
-        <framework src="src/android/ironsourceads.gradle" custom="true" type="gradleReference" />
+        <framework src="src/android/ironsourceads.gradle" custom="true" type="gradleReference"/>
 
     </platform>
 
@@ -193,13 +196,13 @@
 
         <config-file target="config.xml" parent="/*">
             <feature name="IronSourceAdsPlugin">
-                <param name="ios-package" value="IronSourceAdsPlugin" />
+                <param name="ios-package" value="IronSourceAdsPlugin"/>
             </feature>
             <preference name="deployment-target" value="10.0"/>
 
         </config-file>
-        <header-file src="src/ios/IronSourceAdsPlugin.h" />
-        <source-file src="src/ios/IronSourceAdsPlugin.m" />
+        <header-file src="src/ios/IronSourceAdsPlugin.h"/>
+        <source-file src="src/ios/IronSourceAdsPlugin.m"/>
         <framework src="IronSourceSDK" type="podspec" spec="~> 6.8.0.0"/>
         <framework src="IronSourceFacebookAdapter" type="podspec" spec="~> 4.3.1.1"/>
         <framework src="IronSourceAdMobAdapter" type="podspec" spec="~> 4.3.0.1"/>
@@ -230,21 +233,21 @@
 
 
         <framework src="CoreFoundation.framework" weak="true"/>
-        <framework src="Foundation.framework" />
-        <framework src="AVFoundation.framework" />
-        <framework src="CoreMedia.framework" />
-        <framework src="CoreVideo.framework" />
-        <framework src="QuartzCore.framework" />
-        <framework src="SystemConfiguration.framework" />
-        <framework src="CoreGraphics.framework" />
-        <framework src="CFNetwork.framework" />
-        <framework src="MobileCoreServices.framework" />
-        <framework src="libz.dylib" />
-        <framework src="StoreKit.framework" />
-        <framework src="AdSupport.framework" />
-        <framework src="CoreLocation.framework" />
-        <framework src="CoreTelephony.framework" />
-        <framework src="Security.framework" />
+        <framework src="Foundation.framework"/>
+        <framework src="AVFoundation.framework"/>
+        <framework src="CoreMedia.framework"/>
+        <framework src="CoreVideo.framework"/>
+        <framework src="QuartzCore.framework"/>
+        <framework src="SystemConfiguration.framework"/>
+        <framework src="CoreGraphics.framework"/>
+        <framework src="CFNetwork.framework"/>
+        <framework src="MobileCoreServices.framework"/>
+        <framework src="libz.dylib"/>
+        <framework src="StoreKit.framework"/>
+        <framework src="AdSupport.framework"/>
+        <framework src="CoreLocation.framework"/>
+        <framework src="CoreTelephony.framework"/>
+        <framework src="Security.framework"/>
 
         <framework src="UIKit.framework"/>
         <framework src="libxml2.2.tbd"/>
