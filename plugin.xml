@@ -249,13 +249,13 @@
         <framework src="CoreTelephony.framework"/>
         <framework src="Security.framework"/>
 
-        <framework src="UIKit.framework"/>
-        <framework src="libxml2.2.tbd"/>
-        <framework src="EventKitUI.framework"/>
-        <framework src="libsqlite3.tbd"/>
-        <framework src="libc++"/>
-        <framework src="picasso:2.5.2"/>
-        <framework src="gson-2.7.jar"/>
+        <framework src="UIKit.framework" typr="podspec"/>
+        <framework src="libxml2.2.tbd" typr="podspec"/>
+        <framework src="EventKitUI.framework" typr="podspec"/>
+        <framework src="libsqlite3.tbd" typr="podspec"/>
+        <framework src="libc++" typr="podspec"/>
+        <framework src="picasso:2.5.2" typr="podspec"/>
+        <framework src="gson-2.7.jar" typr="podspec"/>
 
 
     </platform>
