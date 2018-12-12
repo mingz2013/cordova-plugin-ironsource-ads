@@ -24,6 +24,102 @@ document.addEventListener('deviceready', function onDeviceReady() {
 
                 console.log("init.....onSuccess....");
 
+
+                /**
+                 * ********************* EVENTS ***********************************
+                 */
+
+
+                //Rewarded Video
+                window.addEventListener("rewardedVideoFailed", function () {
+                    console.log("rewardedVideoFailed");
+                });
+                window.addEventListener("rewardedVideoRewardReceived", function (event) {
+                    console.log("rewardedVideoRewardReceived", event);
+                });
+                window.addEventListener("rewardedVideoEnded", function () {
+                    console.log("rewardedVideoEnded")
+                });
+                window.addEventListener("rewardedVideoStarted", function () {
+                    console.log("rewardedVideoStarted")
+                });
+                window.addEventListener("rewardedVideoAvailabilityChanged", function (event) {
+                    console.log("rewardedVideoAvailabilityChanged", event.available)
+                });
+                window.addEventListener("rewardedVideoClosed", function () {
+                    console.log("rewardedVideoClosed")
+                });
+                window.addEventListener("rewardedVideoOpened", function () {
+                    console.log("rewardedVideoOpened")
+                });
+
+                //Interstitial
+                window.addEventListener("interstitialLoaded", function () {
+                    console.log("interstitialLoaded")
+                });
+                window.addEventListener("interstitialShown", function () {
+                    console.log("interstitialShown")
+                });
+                window.addEventListener("interstitialShowFailed", function () {
+                    console.log("interstitialShowFailed")
+                });
+                window.addEventListener("interstitialClicked", function () {
+                    console.log("interstitialClicked")
+                });
+                window.addEventListener("interstitialClosed", function () {
+                    console.log("interstitialClosed")
+                });
+                window.addEventListener("interstitialWillOpen", function () {
+                    console.log("interstitialWillOpen")
+                });
+                window.addEventListener("interstitialFailedToLoad", function () {
+                    console.log("interstitialFailedToLoad")
+                });
+
+                //Offerwall
+                window.addEventListener("offerwallClosed", function () {
+                    console.log("offerwallClosed")
+                })
+                window.addEventListener("offerwallCreditFailed", function () {
+                    console.log("offerwallCreditFailed")
+                })
+                window.addEventListener("offerwallCreditReceived", function (event) {
+                    console.log("offerwallCreditReceived", event)
+                })
+                window.addEventListener("offerwallShowFailed", function () {
+                    console.log("offerwallShowFailed")
+                })
+                window.addEventListener("offerwallShown", function () {
+                    console.log("offerwallShown")
+                })
+                window.addEventListener("offerwallAvailabilityChanged", function (event) {
+                    console.log("offerwallAvailabilityChanged", event.available)
+                })
+
+                //Banner
+                window.addEventListener("bannerDidLoad", function () {
+                    console.log("bannerDidLoad")
+                });
+                window.addEventListener("bannerFailedToLoad", function () {
+                    console.log("bannerFailedToLoad")
+                });
+                window.addEventListener("bannerDidClick", function () {
+                    console.log("bannerDidClick")
+                });
+                window.addEventListener("bannerWillPresentScreen", function () {
+                    console.log("bannerWillPresentScreen")
+                });
+                window.addEventListener("bannerDidDismissScreen", function () {
+                    console.log("bannerDidDismissScreen")
+                });
+                window.addEventListener("bannerWillLeaveApplication", function () {
+                    console.log("bannerWillLeaveApplication")
+                });
+
+
+
+
+
                 /**
                  * Validate Integration
                  */
@@ -35,47 +131,6 @@ document.addEventListener('deviceready', function onDeviceReady() {
                  */
                 IronSourceAds.setDynamicUserId({ userId: '' });
 
-
-
-
-                /**
-                 * ********************* EVENTS ***********************************
-                 */
-
-
-                //Rewarded Video
-                window.addEventListener("rewardedVideoFailed", function () { console.log("rewardedVideoFailed"); });
-                window.addEventListener("rewardedVideoRewardReceived", function (event) { console.log("rewardedVideoRewardReceived", event); });
-                window.addEventListener("rewardedVideoEnded", function () { console.log("rewardedVideoEnded") });
-                window.addEventListener("rewardedVideoStarted", function () { console.log("rewardedVideoStarted") });
-                window.addEventListener("rewardedVideoAvailabilityChanged", function (event) { console.log("rewardedVideoAvailabilityChanged", event.available) });
-                window.addEventListener("rewardedVideoClosed", function () { console.log("rewardedVideoClosed") });
-                window.addEventListener("rewardedVideoOpened", function () { console.log("rewardedVideoOpened") });
-
-                //Interstitial
-                window.addEventListener("interstitialLoaded", function () { console.log("interstitialLoaded") });
-                window.addEventListener("interstitialShown", function () { console.log("interstitialShown") });
-                window.addEventListener("interstitialShowFailed", function () { console.log("interstitialShowFailed") });
-                window.addEventListener("interstitialClicked", function () { console.log("interstitialClicked") });
-                window.addEventListener("interstitialClosed", function () { console.log("interstitialClosed") });
-                window.addEventListener("interstitialWillOpen", function () { console.log("interstitialWillOpen") });
-                window.addEventListener("interstitialFailedToLoad", function () { console.log("interstitialFailedToLoad") });
-
-                //Offerwall
-                window.addEventListener("offerwallClosed", function () { console.log("offerwallClosed") })
-                window.addEventListener("offerwallCreditFailed", function () { console.log("offerwallCreditFailed") })
-                window.addEventListener("offerwallCreditReceived", function (event) { console.log("offerwallCreditReceived", event) })
-                window.addEventListener("offerwallShowFailed", function () { console.log("offerwallShowFailed") })
-                window.addEventListener("offerwallShown", function () { console.log("offerwallShown") })
-                window.addEventListener("offerwallAvailabilityChanged", function (event) { console.log("offerwallAvailabilityChanged", event.available) })
-
-                //Banner
-                window.addEventListener("bannerDidLoad", function () { console.log("bannerDidLoad") });
-                window.addEventListener("bannerFailedToLoad", function () { console.log("bannerFailedToLoad") });
-                window.addEventListener("bannerDidClick", function () { console.log("bannerDidClick") });
-                window.addEventListener("bannerWillPresentScreen", function () { console.log("bannerWillPresentScreen") });
-                window.addEventListener("bannerDidDismissScreen", function () { console.log("bannerDidDismissScreen") });
-                window.addEventListener("bannerWillLeaveApplication", function () { console.log("bannerWillLeaveApplication") });
 
 
                 /***************** INTERSTITIALS ******************* */

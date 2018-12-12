@@ -38,6 +38,11 @@
                 android:name="com.google.android.gms.version"
                 android:value="@integer/google_play_services_version" />
 
+            <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            <meta-data
+                    android:name="com.google.android.gms.ads.APPLICATION_ID"
+                    android:value="ca-app-pub-3940256099942544~3347511713"/>
+
 
 
         </config-file>
@@ -176,8 +181,10 @@
 
         <source-file src="src/android/IronSourceAdsPlugin.java"
             target-dir="src/com/charlesbodman/cordova/plugin/ironsource" />
+
+
         <framework src="src/android/ironsourceads.gradle" custom="true" type="gradleReference" />
-        <framework src="com.google.android.gms:play-services-ads:+" />
+
     </platform>
 
     <platform name="ios">
