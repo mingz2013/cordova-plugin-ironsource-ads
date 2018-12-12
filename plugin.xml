@@ -69,6 +69,10 @@
             <activity
                     android:name="com.applovin.adview.AppLovinConfirmationActivity"/>
             <activity
+                    android:name="com.adcolony.sdk.AdColonyInterstitialActivity"/>
+            <activity
+                    android:name="com.adcolony.sdk.AdColonyAdViewActivity"/>
+            <activity
                     android:name="com.chartboost.sdk.CBImpressionActivity"
                     android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
                     android:configChanges="keyboardHidden|orientation|screenSize"
@@ -88,7 +92,8 @@
                     android:hardwareAccelerated="true"
                     android:resizeableActivity="false"
                     android:theme="@android:style/Theme.NoTitleBar"
-                    tools:ignore="UnusedAttribute"/>
+            <!--tools:ignore="UnusedAttribute"-->
+            />
             <activity
                     android:name="jp.maio.sdk.android.AdFullscreenActivity"
                     android:configChanges="orientation|screenLayout|screenSize"
@@ -234,6 +239,8 @@
         <framework src="EventKitUI.framework"/>
         <framework src="libsqlite3.tbd"/>
         <framework src="libc++"/>
+        <framework src="picasso:2.5.2"/>
+        <framework src="gson-2.7.jar"/>
 
 
     </platform>

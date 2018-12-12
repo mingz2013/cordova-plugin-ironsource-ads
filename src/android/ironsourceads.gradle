@@ -53,6 +53,7 @@ implementation 'com.ironsource.adapters:fyberadapter:4.3.0@jar'
 implementation 'com.ironsource.adapters:hyprmxadapter:4.1.1@jar'
 implementation 'com.hyprmx.android:HyprMX-SDK:4.3'
 implementation 'com.android.support:support-annotations:25.1.0'
+
 // Add InMobi Network
 implementation 'com.ironsource.adapters:inmobiadapter:4.3.0@jar'
 // Add Maio Network
