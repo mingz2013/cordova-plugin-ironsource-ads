@@ -220,6 +220,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
         final String appKey = args.getString(0);
         final String providedUserId = args.getString(1);
+        final Boolean isDebug = args.getBoolean(2);
 
         final IronSourceAdsPlugin self = this;
 
@@ -245,7 +246,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
                 }
 
                 // we're using an advertisingId as the 'userId'
-                init(appKey, userId);
+                init(appKey, userId, isDebug);
                 callbackContext.success();
 
             }
@@ -259,7 +260,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
      *
      * @todo Provide
      */
-    private void init(String appKey, String userId) {
+    private void init(String appKey, String userId, Boolean isDebug) {
 
         // Be sure to set a listener to each product that is being initiated
         // set the IronSource rewarded video listener
@@ -279,6 +280,10 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
         // init the IronSource SDK
         IronSource.init(this.cordova.getActivity(), appKey);
+
+        if(isDebug){
+            IronSource.setAdaptersDebug(true);
+        }
     }
 
     /** ----------------------- SET DYNAMIC USER ID --------------------------- */

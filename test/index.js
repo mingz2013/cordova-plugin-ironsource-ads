@@ -29,6 +29,8 @@ window.onload = function () {
 
             userId: 'userId_Test', // optional
 
+            debug: true,
+
             onSuccess: function () {
 
                 console.log("init.....onSuccess....");

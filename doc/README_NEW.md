@@ -47,6 +47,21 @@
 - 
 
 
+# config
+
+- need admob key in android manifest.xml
+- config
+```json
+{
+    "IOS_KEY": "",
+    "ANDROID_KEY": "",
+    "userId": "",
+    "isTesting": false
+}
+```
+
+
+
 
 # TODO
 - use Proguard
