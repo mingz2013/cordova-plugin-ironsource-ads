@@ -234,6 +234,9 @@
         <framework src="IronSourceVungleAdapter" type="podspec" spec="~> 4.1.5.7"/>
 
 
+        <framework src="picasso" type="podspec" spec="~> 2.5.2"/>
+        <framework src="gson.jar" type="podspec" spec="~> 2.7"/>
+
         <framework src="src/ios/ISFyberAdapter.framework" custom="true"/>
 
         <framework src="CoreFoundation.framework" weak="true"/>
@@ -253,15 +256,11 @@
         <framework src="CoreTelephony.framework"/>
         <framework src="Security.framework"/>
         <framework src="CoreData.framework"/>
-
-        <framework src="CoreGraphics.framework"/>
         <framework src="UIKit.framework"/>
         <framework src="libxml2.2.tbd"/>
         <framework src="EventKitUI.framework"/>
         <framework src="libsqlite3.tbd"/>
         <framework src="libc++"/>
-        <framework src="picasso:2.5.2" type="podspec"/>
-        <framework src="gson-2.7.jar" type="podspec"/>
 
 
     </platform>
