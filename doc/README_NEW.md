@@ -18,14 +18,7 @@
 
 
 
-`cordova plugin add https://github.com/mingz2013/cordova-plugin-ironsource-ads`
-
-
-
-
-***[更新 ADMOB APP ID](https://developers.google.com/admob/android/quick-start#update_your_androidmanifestxml)***
-
-
+`cordova plugin add https://github.com/mingz2013/cordova-plugin-ironsource-ads --variable ADMOB_APP_ID=ca-app-pub-3940256099942544~3347511713`
 
 
 `cp plugins/cordova-plugin-ironsource-ads/test/*  ./www`
@@ -35,7 +28,7 @@
 `cordova build android`
 
 
-`cordova build ios`
+`cordova build ios --buildFlag='-UseModernBuildSystem=0'`
 
 
 

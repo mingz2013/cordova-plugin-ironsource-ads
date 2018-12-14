@@ -588,6 +588,11 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
                 if (mIronSourceBannerLayout != null) {
 
+                    ViewGroup ironSourceBannerLayoutParent = (ViewGroup)mIronSourceBannerLayout.getParent();
+                    if (ironSourceBannerLayoutParent != null){
+                        return;
+                    }
+
                     parentLayout = (ViewGroup) cordovaWebView.getView().getParent();
 
                     View view = cordovaWebView.getView();
