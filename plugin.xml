@@ -31,9 +31,9 @@
             <!-- ADD MEDIATION PERMISSIONS HERE -->
 
             <!--Requested by Applovin + HyperMX + Vungle -->
-            <uses-permission
-                    android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-                    android:maxSdkVersion="18"/>
+            <!--<uses-permission-->
+            <!--android:name="android.permission.WRITE_EXTERNAL_STORAGE"-->
+            <!--android:maxSdkVersion="18"/>-->
 
             <!--Requested by Flurry -->
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
