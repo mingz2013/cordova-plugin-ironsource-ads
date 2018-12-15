@@ -63,17 +63,24 @@ var IronSourceAds = (function () {
 
         /**
          * Initializes iron source
+         * @param {String} params.appKey
+         * @param {String} params.userId
+         * @param {Boolean} params.debug
+         * @param {int} params.position
+         * @param {int} params.x
+         * @param {int} params.y
          * @param {Function} params.onSuccess - optional on success callback
+         * @param {Function} params.onFailure - optional on failure callback
          */
         init: function init(params) {
 
-            params = defaults(params, { userId: '' });
+            params = defaults(params, {userId: '', debug: false, position: 8, x: 0, y: 0});
 
             if (params.hasOwnProperty('appKey') === false) {
                 throw new Error('IronSourceAds::init - appKey is required');
             }
 
-            callPlugin('init', [params.appKey, params.userId, params.debug], function () {
+            callPlugin('init', [params.appKey, params.userId, params.debug, params.position, params.x, params.y], function () {
 
                 initialized = true;
 
@@ -91,7 +98,7 @@ var IronSourceAds = (function () {
          * Shows rewarded video
          * @param {String} params.placement - optional placement name
          * @param {Function} params.onSuccess - optional on success callback
-         * @param {Function} param.onFailure - optional on failure callback
+         * @param {Function} params.onFailure - optional on failure callback
          */
         showRewardedVideo: function showRewardedVideo(params) {
 
@@ -124,8 +131,9 @@ var IronSourceAds = (function () {
          * @param {string} params.placement
          * @param {string} params.position
          * @param {Function} params.onSuccess
+         * @param {Function} params.onFailure
          */
-        loadBanner: function showBanner(params) {
+        loadBanner: function loadBanner(params) {
 
             params = defaults(params, { placement: 'DefaultBanner', position: 'bottom', size: 'standard' });
 
@@ -136,15 +144,19 @@ var IronSourceAds = (function () {
 
         /**
          * Shows banner if avaialble
-         * @param {string} params.placement
-         * @param {string} params.position
+         // * @param {string} params.placement
+         // * @param {string} params.position
+         * @param {int} params.position
          * @param {Function} params.onSuccess
+         * @param {Function} params.onFailure
          */
         showBanner: function showBanner(params) {
 
-            params = defaults(params, { placement: 'DefaultBanner', position: 'bottom', size: 'standard' });
+            // params = defaults(params, { placement: 'DefaultBanner', position: 'bottom', size: 'standard' });
 
-            callPlugin('showBanner', [params.placement, params.size, params.position], params.onSuccess, params.onFailure);
+            params = defaults(params, {position: 8});
+
+            callPlugin('showBanner', [params.position], params.onSuccess, params.onFailure);
 
         },
 
@@ -165,6 +177,7 @@ var IronSourceAds = (function () {
         /**
          * Checks if offerwall is available
          * @param {Function} params.onSuccess - function to call the result to
+         * @param {Function} params.onFailure
          */
         hasOfferwall: function hasOfferwall(params) {
 
@@ -177,6 +190,7 @@ var IronSourceAds = (function () {
         /**
          * Shows the offerwall if available
          * @param {Function} params.onSuccess
+         * @param {Function} params.onFailure
          */
         showOfferwall: function showOfferwall(params) {
 
@@ -214,6 +228,7 @@ var IronSourceAds = (function () {
         /**
          * Checks to see if interstitial is loaded
          * @param {Function} params.onSuccess
+         * @param {Function} params.onFailure
          */
         hasInterstitial: function isInterstitialReady(params) {
 
