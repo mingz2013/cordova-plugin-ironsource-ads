@@ -134,7 +134,7 @@ var IronSourceAds = (function () {
          * @param {Function} params.onFailure
          */
         loadBanner: function loadBanner(params) {
-
+            console.log("loadBanner....", params);
             params = defaults(params, { placement: 'DefaultBanner', position: 'bottom', size: 'standard' });
 
             callPlugin('loadBanner', [params.placement, params.size, params.position], params.onSuccess, params.onFailure);
@@ -151,7 +151,7 @@ var IronSourceAds = (function () {
          * @param {Function} params.onFailure
          */
         showBanner: function showBanner(params) {
-
+            console.log("showBanner....", params);
             // params = defaults(params, { placement: 'DefaultBanner', position: 'bottom', size: 'standard' });
 
             params = defaults(params, {position: 8});
@@ -166,7 +166,7 @@ var IronSourceAds = (function () {
          * @param {Function} [params.onFailure]
          */
         hideBanner: function hideBanner(params) {
-
+            console.log("hideBanner....", params);
             params = defaults(params, {});
 
             callPlugin('hideBanner', [], params.onSuccess, params.onFailure);

@@ -33,6 +33,7 @@ import com.ironsource.mediationsdk.sdk.OfferwallListener;
 import com.ironsource.mediationsdk.sdk.RewardedVideoListener;
 import com.ironsource.mediationsdk.sdk.BannerListener;
 import java.lang.reflect.Method;
+import android.graphics.Color;
 public class IronSourceAdsPlugin extends CordovaPlugin
         implements RewardedVideoListener, OfferwallListener, InterstitialListener {
 
@@ -233,7 +234,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
      * Intilization action Initializes IronSource
      */
     private void initAction(JSONArray args, final CallbackContext callbackContext) throws JSONException {
-
+        Log.d(TAG, "initAction: ");
         final String appKey = args.getString(0);
         final String providedUserId = args.getString(1);
         final Boolean isDebug = args.getBoolean(2);
@@ -283,7 +284,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
      * @todo Provide
      */
     private void init(String appKey, String userId, Boolean isDebug) {
-
+        Log.d(TAG, "init: ");
         // Be sure to set a listener to each product that is being initiated
         // set the IronSource rewarded video listener
         IronSource.setRewardedVideoListener(this);
@@ -521,13 +522,14 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
     @Override
     public void onInterstitialAdClicked() {
+        Log.d(TAG, "onInterstitialAdClicked: ");
         this.emitWindowEvent(EVENT_INTERSTITIAL_CLICKED, new JSONObject());
     }
 
     /** ----------------------- OFFERWALL --------------------------- */
 
     private void showOfferwallAction(JSONArray args, final CallbackContext callbackContext) throws JSONException {
-
+        Log.d(TAG, "showOfferwallAction: ");
         final String placementName = args.getString(0);
 
         cordova.getActivity().runOnUiThread(new Runnable() {
@@ -539,7 +541,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
     }
 
     private void hasOfferwallAction(JSONArray args, final CallbackContext callbackContext) {
-
+        Log.d(TAG, "hasOfferwallAction: ");
         cordova.getActivity().runOnUiThread(new Runnable() {
             public void run() {
                 boolean available = IronSource.isOfferwallAvailable();
@@ -551,6 +553,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
     @Override
     public void onOfferwallAvailable(boolean available) {
+        Log.d(TAG, "onOfferwallAvailable: ");
         JSONObject data = new JSONObject();
         try {
             data.put("available", available);
@@ -562,17 +565,19 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
     @Override
     public void onOfferwallOpened() {
+        Log.d(TAG, "onOfferwallOpened: ");
         this.emitWindowEvent(EVENT_OFFERWALL_SHOWN, new JSONObject());
     }
 
     @Override
     public void onOfferwallShowFailed(IronSourceError ironSourceError) {
+        Log.d(TAG, "onOfferwallShowFailed: ");
         this.emitWindowEvent(EVENT_OFFERWALL_SHOW_FAILED, createErrorJSON(ironSourceError));
     }
 
     @Override
     public boolean onOfferwallAdCredited(int credits, int totalCredits, boolean totalCreditsFlag) {
-
+        Log.d(TAG, "onOfferwallAdCredited: ");
         JSONObject data = new JSONObject();
 
         try {
@@ -591,11 +596,13 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
     @Override
     public void onGetOfferwallCreditsFailed(IronSourceError ironSourceError) {
+        Log.d(TAG, "onGetOfferwallCreditsFailed: ");
         this.emitWindowEvent(EVENT_OFFERWALL_CREDIT_FAILED, createErrorJSON(ironSourceError));
     }
 
     @Override
     public void onOfferwallClosed() {
+        Log.d(TAG, "onOfferwallClosed: ");
         this.emitWindowEvent(EVENT_OFFERWALL_CLOSED);
     }
 
@@ -605,7 +612,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
     /** ----------------------- BANNER --------------------------- */
     private void loadBannerAction(JSONArray args, final CallbackContext callbackContext) {
-
+        Log.d(TAG, "loadBannerAction: ");
         final IronSourceAdsPlugin self = this;
 
         cordova.getActivity().runOnUiThread(new Runnable() {
@@ -621,7 +628,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
     }
 
     private void showBannerAction(JSONArray args, final CallbackContext callbackContext) throws JSONException {
-
+        Log.d(TAG, "showBannerAction: ");
 //        final String pos = args.getString(0);
 //        if (args.length() == 0){
 //            int pos = 10;
@@ -634,6 +641,10 @@ public class IronSourceAdsPlugin extends CordovaPlugin
        // int x = args.optInt(1);
         //int y = args.optInt(2);
 //
+
+        Log.d(TAG, "showBannerAction: " + pos);
+
+
         final IronSourceAdsPlugin self = this;
 
         cordova.getActivity().runOnUiThread(new Runnable() {
@@ -651,6 +662,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
      * Destroys IronSource Banner and removes it from the container
      */
     private void hideBannerAction(JSONArray args, final CallbackContext callbackContext) {
+        Log.d(TAG, "hideBannerAction: ");
         final IronSourceAdsPlugin self = this;
 
         cordova.getActivity().runOnUiThread(new Runnable() {
@@ -664,6 +676,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
 
     private void hideBanner(){
+        Log.d(TAG, "hideBanner: ");
         if (bannerView != null) {
             this.autoShowBanner = false;
             _detachBanner();
@@ -674,13 +687,13 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
 
     private void pauseAdView(){
-
+        Log.d(TAG, "pauseAdView: ");
     }
 
 
 
     private void loadBanner(){
-
+        Log.d(TAG, "loadBanner: ");
         if (bannerView == null) {
             _createBanner();
             bannerVisible = false;
@@ -694,10 +707,12 @@ public class IronSourceAdsPlugin extends CordovaPlugin
     }
 
     public View getView() {
+        Log.d(TAG, "getView: ");
 //        if(adapter != null) return adapter.getView();
 //        else {
         // Cordova 3.x, class CordovaWebView extends WebView, -> AbsoluteLayout -> ViewGroup -> View -> Object
         if (View.class.isAssignableFrom(CordovaWebView.class)) {
+            Log.d(TAG, "getView: ....webView....");
             return (View) webView;
         }
 
@@ -706,11 +721,13 @@ public class IronSourceAdsPlugin extends CordovaPlugin
             Method getViewMethod = CordovaWebView.class.getMethod("getView", (Class<?>[]) null);
             if (getViewMethod != null) {
                 Object[] args = {};
+                Log.d(TAG, "getView: in try....");
                 return (View) getViewMethod.invoke(webView, args);
             }
         } catch (Exception e) {
         }
 
+        Log.d(TAG, "getView: ......end....");
         // or else we return the root view, but this should not happen
         return cordova.getActivity().getWindow().getDecorView().findViewById(android.R.id.content);
 //        }
@@ -719,30 +736,33 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
 
     public Activity getActivity() {
+        Log.d(TAG, "getActivity: ");
         return cordova.getActivity();
     }
 
     private void showBanner(final int argPos, final int argX, final int argY) {
+        Log.d(TAG, "showBanner: ......." + argPos +" "+ argX +" "+ argY);
         if (bannerView != null) {
             final Activity activity = this.getActivity();
 
 
             View mainView = this.getView();
             if (mainView == null) {
-                Log.e("AppLovinPlugin", "Error: could not get main view");
+                Log.e(TAG, "Error: could not get main view");
             } else {
-                Log.d("AppLovinPlugin", "webview class: " + mainView.getClass());
+                Log.d(TAG, "webview class: " + mainView.getClass());
+                Log.d(TAG, "showBanner: ....bannerVisible:" + this.bannerVisible);
                 if (this.bannerVisible) {
                     _detachBanner();
                 }
 
                 int bw = this.bannerView.getWidth();
                 int bh = this.bannerView.getHeight();
-                Log.d("GenericAdPlugin", String.format("show banner: (%d x %d)", bw, bh));
+                Log.d(TAG, String.format("show banner: (%d x %d)", bw, bh));
                 ViewGroup rootView = (ViewGroup) mainView.getRootView();
                 int rw = rootView.getWidth();
                 int rh = rootView.getHeight();
-                Log.w("GenericAdPlugin", "show banner, overlap:" + this.overlap + ", position: " + argPos);
+                Log.w(TAG, "show banner, overlap:" + this.overlap + ", position: " + argPos);
                 if (this.overlap) {
                     int x = this.posX;
                     int y = this.posY;
@@ -783,15 +803,19 @@ public class IronSourceAdsPlugin extends CordovaPlugin
                     y += offsetWebView[1] - offsetRootView[1];
                     if (this.overlapLayout == null) {
                         this.overlapLayout = new RelativeLayout(activity);
+                        this.overlapLayout.setBackgroundColor(Color.parseColor("#FF00FF"));
                         rootView.addView(this.overlapLayout, new RelativeLayout.LayoutParams(-1, -1));
+                        Log.d(TAG, "showBanner: overlaplayout add to rootView....");
                         this.overlapLayout.bringToFront();
                     }
 
                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(bw, bh);
+                    Log.d(TAG, "showBanner: x,y:" + x +"," + y);
                     params.leftMargin = x;
                     params.topMargin = y;
                     this.overlapLayout.addView(this.bannerView, params);
                     this.parentView = this.overlapLayout;
+                    Log.d(TAG, "showBanner: overlaplayout........");
                 } else {
                     this.parentView = (ViewGroup) mainView.getParent();
                     if (!(this.parentView instanceof LinearLayout)) {
@@ -819,15 +843,20 @@ public class IronSourceAdsPlugin extends CordovaPlugin
                 this.resumeBannerView(this.bannerView);
                 mainView.requestFocus();
 
+
+                Log.d(TAG, "showBanner: .......end.....");
+
             }
         }
     }
 
     private void resumeBannerView(View view) {
+        Log.d(TAG, "resumeBannerView: ");
 //        view.resume();
     }
 
     private void _detachBanner() {
+        Log.d(TAG, "_detachBanner: ");
         if (bannerView != null) {
             bannerView.setVisibility(View.INVISIBLE);
             this.bannerVisible = false;
@@ -841,7 +870,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
 
     private void _createBanner(){
-
+        Log.d(TAG, "_createBanner: ");
         final IronSourceAdsPlugin self = this;
 
         // choose banner size
@@ -856,33 +885,39 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
                 @Override
                 public void onBannerAdLoaded() {
-                    Log.d(TAG, "onBannerAdLoaded");
+                    Log.d(TAG, "onBannerAdLoaded: ");
                     self.emitWindowEvent(EVENT_BANNER_DID_LOAD);
                 }
 
                 @Override
                 public void onBannerAdLoadFailed(IronSourceError ironSourceError) {
+                    Log.d(TAG, "onBannerAdLoadFailed: ");
                     self.emitWindowEvent(EVENT_BANNER_FAILED_TO_LOAD, createErrorJSON(ironSourceError));
+                    self.showBanner(8, 0, 0);
 
                 }
 
                 @Override
                 public void onBannerAdClicked() {
+                    Log.d(TAG, "onBannerAdClicked: ");
                     self.emitWindowEvent(EVENT_BANNER_DID_CLICK);
                 }
 
                 @Override
                 public void onBannerAdScreenPresented() {
+                    Log.d(TAG, "onBannerAdScreenPresented: ");
                     self.emitWindowEvent(EVENT_BANNER_WILL_PRESENT_SCREEN);
                 }
 
                 @Override
                 public void onBannerAdScreenDismissed() {
+                    Log.d(TAG, "onBannerAdScreenDismissed: ");
                     self.emitWindowEvent(EVENT_BANNER_DID_DISMISS_SCREEN);
                 }
 
                 @Override
                 public void onBannerAdLeftApplication() {
+                    Log.d(TAG, "onBannerAdLeftApplication: ");
                     self.emitWindowEvent(EVENT_BANNER_WILL_LEAVE_APPLICATION);
                 }
             });
@@ -891,6 +926,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
 
     private void _removeBanner(){
+        Log.d(TAG, "_removeBanner: ");
         if (bannerView != null) {
             hideBanner();
             this._destroyBanner();
@@ -905,6 +941,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
      * Destory Banner
      */
     private void _destroyBanner() {
+        Log.d(TAG, "_destroyBanner: ");
                 if (bannerView != null) {
                     IronSource.destroyBanner(bannerView);
                     bannerView = null;
