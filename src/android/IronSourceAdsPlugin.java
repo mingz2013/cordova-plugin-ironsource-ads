@@ -849,7 +849,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 
                     params.leftMargin = x;
                     params.topMargin = y;
-                    this.bannerView.setBackgroundColor(Color.parseColor("#FF00FF"));
+//                    this.bannerView.setBackgroundColor(Color.parseColor("#FF00FF"));
                     this.overlapLayout.addView(this.bannerView, params);
                     this.bannerView.bringToFront();
                     this.parentView = this.overlapLayout;
@@ -929,15 +929,15 @@ public class IronSourceAdsPlugin extends CordovaPlugin
                 public void onBannerAdLoaded() {
                     Log.d(TAG, "onBannerAdLoaded: ");
                     Log.d(TAG, "onBannerAdLoaded: bannerView x, y, w, h:" + bannerView.getX() + "," + bannerView.getY() + "," + bannerView.getWidth() + "," + bannerView.getHeight());
-                    self.showBanner(8, 0, 0);
-//                    self.emitWindowEvent(EVENT_BANNER_DID_LOAD);
+//                    self.showBanner(8, 0, 0);
+                    self.emitWindowEvent(EVENT_BANNER_DID_LOAD);
                 }
 
                 @Override
                 public void onBannerAdLoadFailed(IronSourceError ironSourceError) {
                     Log.d(TAG, "onBannerAdLoadFailed: ");
-//                    self.emitWindowEvent(EVENT_BANNER_FAILED_TO_LOAD, createErrorJSON(ironSourceError));
-                    self.showBanner(8, 0, 0);
+                    self.emitWindowEvent(EVENT_BANNER_FAILED_TO_LOAD, createErrorJSON(ironSourceError));
+//                    self.showBanner(8, 0, 0);
 
                 }
 
