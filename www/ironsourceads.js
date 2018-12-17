@@ -5,6 +5,20 @@ var IronSourceAds = (function () {
 
     return {
 
+        AD_POSITION: {
+            NO_CHANGE: 0,
+            TOP_LEFT: 1,
+            TOP_CENTER: 2,
+            TOP_RIGHT: 3,
+            LEFT: 4,
+            CENTER: 5,
+            RIGHT: 6,
+            BOTTOM_LEFT: 7,
+            BOTTOM_CENTER: 8,
+            BOTTOM_RIGHT: 9,
+            POS_XY: 10
+        },
+
         /**
          * Returns the state of initialization
          */
@@ -69,18 +83,20 @@ var IronSourceAds = (function () {
          * @param {int} params.position
          * @param {int} params.x
          * @param {int} params.y
+         * @param {int} params.w
+         * @param {int} params.h
          * @param {Function} params.onSuccess - optional on success callback
          * @param {Function} params.onFailure - optional on failure callback
          */
         init: function init(params) {
 
-            params = defaults(params, {userId: '', debug: false, position: 8, x: 0, y: 0});
+            params = defaults(params, {userId: '', debug: false, position: 8, x: 0, y: 0, w: 0, h: 0});
 
             if (params.hasOwnProperty('appKey') === false) {
                 throw new Error('IronSourceAds::init - appKey is required');
             }
 
-            callPlugin('init', [params.appKey, params.userId, params.debug, params.position, params.x, params.y], function () {
+            callPlugin('init', [params.appKey, params.userId, params.debug, params.position, params.x, params.y, params.w, params.h], function () {
 
                 initialized = true;
 
@@ -127,7 +143,7 @@ var IronSourceAds = (function () {
 
 
         /**
-         * Shows banner if avaialble
+         * load banner if avaialble
          * @param {string} params.placement
          * @param {string} params.position
          * @param {Function} params.onSuccess
@@ -144,19 +160,23 @@ var IronSourceAds = (function () {
 
         /**
          * Shows banner if avaialble
-         // * @param {string} params.placement
-         // * @param {string} params.position
-         * @param {int} params.position
-         * @param {Function} params.onSuccess
-         * @param {Function} params.onFailure
+         // * @params {string} params.placement
+         // * @params {string} params.position
+         * @params {int} params.position   AD_POSITION
+         * @params {int} params.x
+         * @params {int} params.y
+         //         * @params {int} params.w
+         //         * @params {int} params.h
+         * @params {Function} params.onSuccess
+         * @params {Function} params.onFailure
          */
         showBanner: function showBanner(params) {
             console.log("showBanner....", params);
             // params = defaults(params, { placement: 'DefaultBanner', position: 'bottom', size: 'standard' });
 
-            params = defaults(params, {position: 8});
+            params = defaults(params, {position: 0, x: 0, y: 0});
 
-            callPlugin('showBanner', [params.position], params.onSuccess, params.onFailure);
+            callPlugin('showBanner', [params.position, params.x, params.y], params.onSuccess, params.onFailure);
 
         },
 
