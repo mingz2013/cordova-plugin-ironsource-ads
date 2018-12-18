@@ -746,6 +746,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
     }
 
 
+
     public Activity getActivity() {
         Log.d(TAG, "getActivity: ");
         return cordova.getActivity();
@@ -781,16 +782,16 @@ public class IronSourceAdsPlugin extends CordovaPlugin
 //                int bh = this.bannerView.getHeight();
                 int bw = this.adWidth;
                 int bh = this.adHeight;
-                this.adPosition = (argPos == 0) ? argPos : this.adPosition;
+                this.adPosition = (argPos == 0) ?  this.adPosition:argPos;
                 Log.d(TAG, String.format("show banner: x,y: (%d x %d)", bw, bh));
 
-                Log.w(TAG, "show banner, overlap: " + this.overlap + ", position: " + argPos);
+                Log.w(TAG, "show banner, overlap: " + this.overlap + ", position: " + this.adPosition);
                 if (this.overlap) {
                     int x = 0, y = 0;
 //                    int ww = mainView.getWidth();
 //                    int wh = mainView.getHeight();
-                    if (argPos >= 1 && argPos <= 9) {
-                        switch ((argPos - 1) % 3) {
+                    if (this.adPosition >= 1 && this.adPosition <= 9) {
+                        switch ((this.adPosition - 1) % 3) {
                             case 0:
                                 x = 0;
                                 break;
@@ -801,7 +802,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
                                 x = ww - bw;
                         }
 
-                        switch ((argPos - 1) / 3) {
+                        switch ((this.adPosition - 1) / 3) {
                             case 0:
                                 y = 0;
                                 break;
@@ -811,7 +812,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
                             case 2:
                                 y = wh - bh;
                         }
-                    } else if (argPos == 10) {
+                    } else if (this.adPosition == 10) {
                         x = argX;
                         y = argY;
                     } else {
@@ -867,7 +868,7 @@ public class IronSourceAdsPlugin extends CordovaPlugin
                         this.parentView = this.splitLayout;
                     }
 
-                    if (argPos <= 3) {
+                    if (this.adPosition <= 3) {
                         this.parentView.addView(this.bannerView, 0);
                     } else {
                         this.parentView.addView(this.bannerView);
